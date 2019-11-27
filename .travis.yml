@@ -1,0 +1,24 @@
+language: python
+matrix:
+  include:
+    - python: '3.7'
+    - python: '3.8'
+
+before_install:
+  - python --version
+
+install:
+  - pip install pipenv
+  - pip install coveralls
+  - pipenv install --dev --system
+
+script:
+  - pipenv run pytest --cov . -cov-report term-missing -v
+
+after_failure:
+  - coveralls
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
