@@ -10,7 +10,7 @@ before_install:
 install:
   - pip install pipenv
   - pip install coveralls
-  - pipenv install --dev --system
+  - pip install -r requirements-dev.txt
 
 script:
   - pytest -v  --cov . tests/ --cov-report=term-missing
