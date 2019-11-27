@@ -13,7 +13,7 @@ install:
   - pipenv install --dev --system
 
 script:
-  - pipenv run pytest --cov . -cov-report term-missing -v
+  - pytest -v  --cov . tests/ --cov-report=term-missing
 
 after_failure:
   - coveralls
